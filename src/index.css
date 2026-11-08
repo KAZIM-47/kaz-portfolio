@@ -139,6 +139,32 @@ textarea:focus-visible {
   animation-iteration-count: infinite;
 }
 
+/* Pixel Burst Hover Animation */
+@keyframes pixelBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), var(--ty, 0));
+  }
+}
+
+.pixel-burst-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.group:hover .pixel-burst-particle,
+.group:focus-visible .pixel-burst-particle {
+  animation: pixelBurst 400ms steps(4) forwards;
+}
+
 /* Stepped reveal (pixel pop-in) */
 .pop {
   opacity: 0;
@@ -173,6 +199,10 @@ textarea:focus-visible {
     opacity: 1 !important;
   }
   .pixel-rain-container {
+    display: none !important;
+  }
+  .pixel-burst-container,
+  .pixel-burst-particle {
     display: none !important;
   }
 }

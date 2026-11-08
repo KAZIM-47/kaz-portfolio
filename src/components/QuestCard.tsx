@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quest } from '../config/quests';
+import { PixelBurst } from './PixelBurst';
 
 export interface QuestCardProps {
   quest: Quest;
@@ -30,10 +31,11 @@ export const QuestCard: React.FC<QuestCardProps> = ({ quest, index }) => {
       : quest.id.replace('QUEST', 'PROJECT');
 
   const cardClasses =
-    'group bg-panel border-2 border-line p-7 flex flex-col transition-[transform,box-shadow,border-color] duration-120 ease-[steps(2)] hover:border-accent hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--accent)]';
+    'relative group bg-panel border-2 border-line p-7 flex flex-col transition-[transform,box-shadow,border-color] duration-120 ease-[steps(2)] hover:border-accent hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--accent)]';
 
   const cardContent = (
     <>
+      <PixelBurst index={index} />
       <div className="flex justify-between items-start gap-4 mb-3.5">
         <div>
           <div className="font-pixel text-[10px] text-muted uppercase tracking-normal mb-3.5">
