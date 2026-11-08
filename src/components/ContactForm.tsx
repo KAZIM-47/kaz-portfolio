@@ -37,7 +37,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
 
     const accessKey = siteConfig.contact?.accessKey;
-    if (!accessKey || accessKey === 'REPLACE_WITH_WEB3FORMS_KEY') {
+    if (!accessKey) {
       setStatus('error');
       return;
     }

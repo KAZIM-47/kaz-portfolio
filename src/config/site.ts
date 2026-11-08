@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
     filename: 'KAZ-Resume.pdf',
   },
   contact: {
-    accessKey: 'REPLACE_WITH_WEB3FORMS_KEY',
+    accessKey: "932af4f2-7432-44d8-b6c4-9b9f99de1c43",
     recipientEmail: 'mohammadkazimgoher@gmail.com',
   },
   footer: {
