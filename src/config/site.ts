@@ -18,6 +18,10 @@ export interface SiteConfig {
     readonly href: string;
     readonly filename: string;
   };
+  readonly contact: {
+    readonly accessKey: string;
+    readonly recipientEmail: string;
+  };
   readonly footer: {
     readonly copyright: string;
     readonly coinText: string;
@@ -42,6 +46,10 @@ export const siteConfig: SiteConfig = {
     label: 'Resume',
     href: '/resume.pdf',
     filename: 'KAZ-Resume.pdf',
+  },
+  contact: {
+    accessKey: 'REPLACE_WITH_WEB3FORMS_KEY',
+    recipientEmail: 'mohammadkazimgoher@gmail.com',
   },
   footer: {
     copyright: '© KAZ',

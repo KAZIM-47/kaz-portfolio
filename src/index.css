@@ -73,9 +73,25 @@ a {
 
 /* Accessible focus styles */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
   outline: 2px solid var(--accent) !important;
   outline-offset: 2px !important;
+}
+
+/* Contact form panel fade reveal */
+.contact-form-panel:not([hidden]) {
+  animation: formFade 150ms steps(3) forwards;
+}
+
+@keyframes formFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Caret blinking block animation */

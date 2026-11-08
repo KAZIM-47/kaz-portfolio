@@ -1,64 +1,43 @@
 import React from 'react';
 import { siteConfig } from '../config/site';
 import { PixelButton } from './PixelButton';
+import { ContactForm } from './ContactForm';
 import { Pop } from './Pop';
 
 export const Contact: React.FC = () => {
-  const { email, github, linkedin, resume } = siteConfig;
-  const [copied, setCopied] = React.useState(false);
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { github, linkedin, resume } = siteConfig;
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
 
-  const handleEmailClick = () => {
-    try {
-      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(email).catch(() => {});
-      }
-    } catch {
-      // Guarded: do nothing if it fails
-    }
-
-    setCopied(true);
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+  const toggleForm = () => {
+    setIsFormOpen((prev) => !prev);
   };
-
-  React.useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
 
   return (
     <section id="contact" className="pt-[110px] pb-20 border-t-2 border-line">
       <Pop className="font-pixel font-normal text-[clamp(22px,4.5vw,44px)] leading-[1.4] uppercase text-text mb-10">
         Continue?
         <br />
-        <a
-          href={`mailto:${email}`}
-          onClick={handleEmailClick}
-          className="text-accent border-b-4 border-accent transition-colors duration-100 ease-[steps(1)] hover:bg-accent hover:text-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        <button
+          type="button"
+          onClick={toggleForm}
+          aria-expanded={isFormOpen}
+          aria-controls="contact-form"
+          className="text-accent border-b-4 border-accent transition-colors duration-100 ease-[steps(1)] hover:bg-accent hover:text-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer text-left bg-transparent p-0 border-t-0 border-l-0 border-r-0 font-inherit uppercase leading-inherit inline select-none"
         >
           Press enter to email
-        </a>
+        </button>
       </Pop>
 
       <Pop delayMs={150} className="flex gap-4 flex-wrap items-center">
-        <div className="inline-flex items-center gap-3">
-          <PixelButton
-            href={`mailto:${email}`}
-            variant="solid"
-            onClick={handleEmailClick}
-          >
-            Email
-          </PixelButton>
-          {copied && (
-            <span className="font-pixel text-[10px] text-muted uppercase tracking-normal select-none">
-              Email copied
-            </span>
-          )}
-        </div>
+        <PixelButton
+          type="button"
+          variant="solid"
+          onClick={toggleForm}
+          aria-expanded={isFormOpen}
+          aria-controls="contact-form"
+        >
+          Email
+        </PixelButton>
         <PixelButton href={github} variant="solid" external>
           GitHub
         </PixelButton>
@@ -76,6 +55,8 @@ export const Contact: React.FC = () => {
           {resume.label}
         </PixelButton>
       </Pop>
+
+      <ContactForm id="contact-form" hidden={!isFormOpen} />
     </section>
   );
 };

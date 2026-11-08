@@ -12,6 +12,9 @@ export interface PixelButtonProps {
   download?: string;
   target?: string;
   rel?: string;
+  disabled?: boolean;
+  'aria-expanded'?: boolean | 'true' | 'false';
+  'aria-controls'?: string;
 }
 
 export const PixelButton: React.FC<PixelButtonProps> = ({
@@ -26,6 +29,9 @@ export const PixelButton: React.FC<PixelButtonProps> = ({
   download,
   target,
   rel,
+  disabled = false,
+  'aria-expanded': ariaExpanded,
+  'aria-controls': ariaControls,
 }) => {
   const baseClasses =
     'inline-block font-pixel text-[11px] uppercase tracking-normal px-5 py-4 select-none leading-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg';
@@ -36,8 +42,9 @@ export const PixelButton: React.FC<PixelButtonProps> = ({
       : 'border-2 border-line text-text bg-transparent';
 
   // Hard pixel shadow and press down 4px on hover/click with steps(1)
-  const motionClasses =
-    'shadow-[4px_4px_0_var(--line)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent hover:text-bg hover:border-accent active:translate-x-1 active:translate-y-1 active:shadow-none transition-[transform,box-shadow,color,background-color,border-color] duration-100 ease-[steps(1)]';
+  const motionClasses = disabled
+    ? 'shadow-[4px_4px_0_var(--line)] opacity-50 cursor-not-allowed pointer-events-none'
+    : 'shadow-[4px_4px_0_var(--line)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent hover:text-bg hover:border-accent active:translate-x-1 active:translate-y-1 active:shadow-none transition-[transform,box-shadow,color,background-color,border-color] duration-100 ease-[steps(1)]';
 
   const combinedClasses = `${baseClasses} ${variantClasses} ${motionClasses} ${className}`.trim();
 
@@ -51,6 +58,8 @@ export const PixelButton: React.FC<PixelButtonProps> = ({
         className={combinedClasses}
         onClick={onClick}
         aria-label={ariaLabel}
+        aria-expanded={ariaExpanded}
+        aria-controls={ariaControls}
         download={download}
         target={computedTarget}
         rel={computedRel}
@@ -65,7 +74,10 @@ export const PixelButton: React.FC<PixelButtonProps> = ({
       type={type}
       className={combinedClasses}
       onClick={onClick}
+      disabled={disabled}
       aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
     >
       {children}
     </button>
