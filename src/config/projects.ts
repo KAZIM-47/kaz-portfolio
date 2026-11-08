@@ -1,5 +1,10 @@
 export type ProjectStatus = 'active' | 'dev' | 'complete' | 'present';
 
+export interface ProjectImage {
+  readonly src: string;
+  readonly alt: string;
+}
+
 export interface Project {
   readonly id: string;
   readonly title: string;
@@ -8,6 +13,10 @@ export interface Project {
   readonly status: ProjectStatus;
   readonly url?: string;
   readonly ariaLabel?: string;
+  readonly image?: {
+    readonly src: string;
+    readonly alt: string;
+  };
 }
 
 export const projects: readonly Project[] = [
@@ -20,6 +29,10 @@ export const projects: readonly Project[] = [
     status: 'present',
     url: 'https://aivahr.ai/',
     ariaLabel: 'View AivaHR live site (opens in a new tab)',
+    image: {
+      src: '/projects/aivahr.png',
+      alt: 'AivaHR HRMS platform screenshot',
+    },
   },
   {
     id: 'PROJECT 02',
@@ -30,6 +43,10 @@ export const projects: readonly Project[] = [
     status: 'complete',
     url: 'https://studynotion-edtech-project-main-ten.vercel.app/',
     ariaLabel: 'View StudyNotion live site (opens in a new tab)',
+    image: {
+      src: '/projects/studynotion.png',
+      alt: 'StudyNotion e-learning platform screenshot',
+    },
   },
   {
     id: 'PROJECT 03',

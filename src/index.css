@@ -98,3 +98,19 @@ button:focus-visible {
     opacity: 1 !important;
   }
 }
+
+/* Card screenshot pixel treatment */
+.card-screenshot {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  filter: grayscale(0.55) contrast(1.05) brightness(0.85);
+  transition: filter 120ms steps(3);
+}
+
+.group:hover .card-screenshot,
+.group:focus-visible .card-screenshot,
+.group:focus-within .card-screenshot {
+  filter: none;
+}
+
