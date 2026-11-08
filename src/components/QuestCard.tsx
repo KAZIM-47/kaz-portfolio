@@ -30,67 +30,73 @@ export const QuestCard: React.FC<QuestCardProps> = ({ quest, index }) => {
       : quest.id.replace('QUEST', 'PROJECT');
 
   const cardClasses =
-    'group bg-panel border-2 border-line p-7 grid grid-cols-1 desktop:grid-cols-[1fr_auto] gap-4 desktop:gap-7 items-start transition-[transform,box-shadow,border-color] duration-120 ease-[steps(2)] hover:border-accent hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--accent)]';
+    'group bg-panel border-2 border-line p-7 flex flex-col transition-[transform,box-shadow,border-color] duration-120 ease-[steps(2)] hover:border-accent hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--accent)]';
 
   const cardContent = (
     <>
-      <div>
-        <div className="font-pixel text-[10px] text-muted uppercase tracking-normal mb-3.5">
-          {projectLabel}
-        </div>
-        <h3 className="font-pixel font-normal text-[clamp(14px,2vw,18px)] leading-[1.5] uppercase text-text mb-3.5">
-          {quest.title}
-        </h3>
-        {quest.image && !imageError && (
-          <div className="relative mb-4 w-full aspect-video overflow-hidden border-2 border-[#1f2b23] shadow-[4px_4px_0_#050505]">
-            <img
-              src={quest.image.src}
-              alt={quest.image.alt}
-              width={1024}
-              height={576}
-              loading="lazy"
-              decoding="async"
-              onError={() => setImageError(true)}
-              className="card-screenshot w-full h-full object-cover"
-            />
-            {/* Scanline overlay */}
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                backgroundImage:
-                  'repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 2px 3px)',
-              }}
-            />
-            {/* Bottom fade overlay */}
-            <div
-              className="pointer-events-none absolute bottom-0 left-0 right-0 h-[30%]"
-              style={{
-                background: 'linear-gradient(to bottom, transparent, #07090c)',
-              }}
-            />
+      <div className="flex justify-between items-start gap-4 mb-3.5">
+        <div>
+          <div className="font-pixel text-[10px] text-muted uppercase tracking-normal mb-3.5">
+            {projectLabel}
           </div>
-        )}
-        <p className="font-body text-[20px] tablet:text-[24px] leading-[1.3] text-[#b8b8b0] max-w-[620px]">
-          {quest.description}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {quest.tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-body text-[20px] leading-tight border border-line px-2 text-muted"
-            >
-              {tag}
-            </span>
-          ))}
+          <h3 className="font-pixel font-normal text-[clamp(14px,2vw,18px)] leading-[1.5] uppercase text-text">
+            {quest.title}
+          </h3>
+        </div>
+
+        <div
+          className={`font-pixel text-[10px] uppercase tracking-normal py-2 px-2.5 whitespace-nowrap border-2 self-start shrink-0 ${
+            isAccentBadge ? 'border-accent text-accent' : 'border-muted text-muted'
+          }`}
+        >
+          {statusLabel}
         </div>
       </div>
 
-      <div
-        className={`font-pixel text-[10px] uppercase tracking-normal py-2 px-2.5 whitespace-nowrap border-2 self-start ${
-          isAccentBadge ? 'border-accent text-accent' : 'border-muted text-muted'
-        }`}
-      >
-        {statusLabel}
+      {quest.image && !imageError && (
+        <div className="relative mb-4 w-full aspect-video overflow-hidden border-2 border-[#1f2b23] shadow-[4px_4px_0_#050505]">
+          <img
+            src={quest.image.src}
+            alt={quest.image.alt}
+            width={1024}
+            height={576}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImageError(true)}
+            className="card-screenshot block w-full h-full object-cover"
+            style={{ width: '100%', display: 'block' }}
+          />
+          {/* Scanline overlay */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 2px 3px)',
+            }}
+          />
+          {/* Bottom fade overlay */}
+          <div
+            className="pointer-events-none absolute bottom-0 left-0 right-0 h-[30%]"
+            style={{
+              background: 'linear-gradient(to bottom, transparent, #07090c)',
+            }}
+          />
+        </div>
+      )}
+
+      <p className="font-body text-[20px] tablet:text-[24px] leading-[1.3] text-[#b8b8b0] max-w-[620px]">
+        {quest.description}
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {quest.tags.map((tag) => (
+          <span
+            key={tag}
+            className="font-body text-[20px] leading-tight border border-line px-2 text-muted"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
     </>
   );

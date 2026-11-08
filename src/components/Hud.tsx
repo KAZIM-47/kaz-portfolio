@@ -20,6 +20,9 @@ export const Hud: React.FC = () => {
         >
           <a
             href="#quests"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('expand-projects'));
+            }}
             className="text-muted hover:text-accent transition-colors duration-150 ease-[steps(2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             Projects

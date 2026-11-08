@@ -114,3 +114,32 @@ button:focus-visible {
   filter: none;
 }
 
+/* Projects section arrow toggle button */
+.arrow-toggle {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: var(--accent) !important;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.arrow-toggle:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: var(--accent) !important;
+}
+
+.arrow-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.arrow-toggle:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px !important;
+}
+
