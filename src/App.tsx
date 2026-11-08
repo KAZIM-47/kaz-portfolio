@@ -1,4 +1,5 @@
 import React from 'react';
+import { PixelRain } from './components/PixelRain';
 import { Hud } from './components/Hud';
 import { Hero } from './components/Hero';
 import { QuestLog } from './components/QuestLog';
@@ -10,12 +11,15 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-bg text-text font-body selection:bg-accent selection:text-bg">
+    <div className="relative min-h-screen bg-bg text-text font-body selection:bg-accent selection:text-bg">
+      {/* Background Pixel Rain */}
+      <PixelRain />
+
       {/* Sticky Top HUD */}
       <Hud />
 
       {/* Main Single Column Container */}
-      <main className="max-w-[1040px] mx-auto px-6">
+      <main className="relative z-10 max-w-[1040px] mx-auto px-6">
         <Hero />
         <QuestLog />
         <Experience />

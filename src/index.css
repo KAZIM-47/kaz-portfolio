@@ -110,6 +110,35 @@ textarea:focus-visible {
   }
 }
 
+/* Pixel Rain Background Animation */
+@keyframes pixelRain {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(calc(100vh + 20px));
+  }
+}
+
+.pixel-rain-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pixel-rain-square {
+  position: absolute;
+  top: 0;
+  will-change: transform;
+  animation-name: pixelRain;
+  animation-duration: var(--duration);
+  animation-delay: var(--delay);
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+}
+
 /* Stepped reveal (pixel pop-in) */
 .pop {
   opacity: 0;
@@ -142,6 +171,9 @@ textarea:focus-visible {
   }
   .caret {
     opacity: 1 !important;
+  }
+  .pixel-rain-container {
+    display: none !important;
   }
 }
 
