@@ -34,6 +34,36 @@ body {
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: grayscale;
   image-rendering: pixelated;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'%3E%3Cg fill='%23000000'%3E%3Crect x='0' y='0' width='2' height='15'/%3E%3Crect x='2' y='1' width='2' height='1'/%3E%3Crect x='4' y='2' width='2' height='1'/%3E%3Crect x='6' y='3' width='2' height='1'/%3E%3Crect x='8' y='4' width='2' height='1'/%3E%3Crect x='10' y='5' width='2' height='1'/%3E%3Crect x='12' y='6' width='2' height='1'/%3E%3Crect x='14' y='7' width='2' height='1'/%3E%3Crect x='16' y='8' width='2' height='1'/%3E%3Crect x='18' y='9' width='2' height='2'/%3E%3Crect x='12' y='10' width='6' height='1'/%3E%3Crect x='6' y='11' width='2' height='1'/%3E%3Crect x='10' y='11' width='2' height='1'/%3E%3Crect x='4' y='12' width='2' height='1'/%3E%3Crect x='8' y='12' width='2' height='2'/%3E%3Crect x='12' y='12' width='2' height='2'/%3E%3Crect x='2' y='13' width='2' height='1'/%3E%3Crect x='9' y='14' width='2' height='2'/%3E%3Crect x='13' y='14' width='2' height='2'/%3E%3Crect x='10' y='16' width='2' height='2'/%3E%3Crect x='14' y='16' width='2' height='2'/%3E%3Crect x='11' y='18' width='4' height='1'/%3E%3C/g%3E%3Cg fill='%23E8E8E0'%3E%3Crect x='2' y='2' width='2' height='11'/%3E%3Crect x='4' y='3' width='2' height='9'/%3E%3Crect x='6' y='4' width='2' height='7'/%3E%3Crect x='8' y='5' width='2' height='7'/%3E%3Crect x='10' y='6' width='2' height='5'/%3E%3Crect x='12' y='7' width='2' height='3'/%3E%3Crect x='14' y='8' width='2' height='2'/%3E%3Crect x='16' y='9' width='2' height='1'/%3E%3Crect x='10' y='12' width='2' height='2'/%3E%3Crect x='11' y='14' width='2' height='2'/%3E%3Crect x='12' y='16' width='2' height='2'/%3E%3C/g%3E%3C/svg%3E") 0 0, auto;
+}
+
+/* Pixel pointer cursor */
+a,
+button,
+[role="button"],
+label,
+summary,
+.PixelButton,
+.pixel-button,
+.cursor-pointer {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'%3E%3Cg fill='%23000000'%3E%3Crect x='6' y='0' width='3' height='1'/%3E%3Crect x='5' y='1' width='1' height='6'/%3E%3Crect x='9' y='1' width='1' height='6'/%3E%3Crect x='13' y='5' width='3' height='1'/%3E%3Crect x='12' y='6' width='1' height='1'/%3E%3Crect x='16' y='6' width='1' height='1'/%3E%3Crect x='2' y='7' width='3' height='1'/%3E%3Crect x='8' y='7' width='1' height='4'/%3E%3Crect x='11' y='7' width='1' height='2'/%3E%3Crect x='15' y='7' width='1' height='2'/%3E%3Crect x='18' y='7' width='3' height='1'/%3E%3Crect x='1' y='8' width='1' height='3'/%3E%3Crect x='4' y='8' width='1' height='1'/%3E%3Crect x='17' y='8' width='1' height='1'/%3E%3Crect x='21' y='8' width='1' height='1'/%3E%3Crect x='10' y='9' width='1' height='2'/%3E%3Crect x='14' y='9' width='1' height='2'/%3E%3Crect x='16' y='9' width='1' height='2'/%3E%3Crect x='20' y='9' width='1' height='2'/%3E%3Crect x='22' y='9' width='1' height='1'/%3E%3Crect x='9' y='10' width='1' height='1'/%3E%3Crect x='15' y='10' width='1' height='1'/%3E%3Crect x='23' y='10' width='1' height='3'/%3E%3Crect x='2' y='11' width='1' height='1'/%3E%3Crect x='3' y='12' width='1' height='2'/%3E%3Crect x='22' y='13' width='1' height='1'/%3E%3Crect x='4' y='14' width='1' height='2'/%3E%3Crect x='21' y='14' width='1' height='2'/%3E%3Crect x='5' y='16' width='1' height='1'/%3E%3Crect x='20' y='16' width='1' height='1'/%3E%3Crect x='6' y='17' width='1' height='3'/%3E%3Crect x='19' y='17' width='1' height='3'/%3E%3Crect x='7' y='19' width='12' height='1'/%3E%3C/g%3E%3Cg fill='%237CFF6B'%3E%3Crect x='6' y='1' width='3' height='6'/%3E%3Crect x='13' y='6' width='3' height='1'/%3E%3Crect x='5' y='7' width='3' height='9'/%3E%3Crect x='12' y='7' width='3' height='2'/%3E%3Crect x='2' y='8' width='2' height='3'/%3E%3Crect x='18' y='8' width='3' height='1'/%3E%3Crect x='4' y='9' width='1' height='5'/%3E%3Crect x='11' y='9' width='3' height='10'/%3E%3Crect x='17' y='9' width='3' height='8'/%3E%3Crect x='21' y='10' width='2' height='3'/%3E%3Crect x='3' y='11' width='1' height='1'/%3E%3Crect x='8' y='11' width='3' height='8'/%3E%3Crect x='14' y='11' width='3' height='8'/%3E%3Crect x='20' y='11' width='1' height='5'/%3E%3Crect x='21' y='13' width='1' height='1'/%3E%3Crect x='6' y='16' width='2' height='1'/%3E%3Crect x='7' y='17' width='1' height='2'/%3E%3Crect x='17' y='17' width='2' height='2'/%3E%3C/g%3E%3C/svg%3E") 7 0, pointer;
+}
+
+/* Native text cursor */
+input,
+textarea,
+[contenteditable],
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* Native not-allowed cursor */
+button:disabled,
+input:disabled,
+textarea:disabled,
+[aria-disabled="true"],
+.disabled {
+  cursor: not-allowed;
 }
 
 a {
@@ -122,7 +152,6 @@ button:focus-visible {
   outline: none !important;
   box-shadow: none !important;
   color: var(--accent) !important;
-  cursor: pointer;
   line-height: 1;
 }
 
